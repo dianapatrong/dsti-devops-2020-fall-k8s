@@ -55,7 +55,7 @@ Enter to the container:
 kubectl exec -it <POD_NAME> bash
 ```
 
-Run `curl localhost`
+Run `curl localhost` (or `curl localhost/index.html`, because by default of Nginx it will point to `index.html` if you not specify what the file name)
 
 It will output the page of the 403 error, because there is no `index.html` file to respond with:
 
@@ -119,7 +119,7 @@ sudo echo 'Hello from Kubernetes storage!' > /mnt/hostPath/index.html
 
 Make sure you have successfully written to file: `cat /mnt/hostPath/index.html`
 
-From you host (not a VM) enter to a container and run `curl localhost`. It will output:
+Run `curl localhost` from the container (not from the VM). It will output:
 
 ```
 Hello from Kubernetes storage!
@@ -138,3 +138,4 @@ Reference to this tutorial and reproduce all the steps - https://kubernetes.io/d
 ## Bonus tasks
 
 1. Configure a Pod to use Secret - https://kubernetes.io/docs/concepts/configuration/secret/
+2. Configuring Redis using a ConfigMap - https://kubernetes.io/docs/tutorials/configuration/configure-redis-using-configmap/
